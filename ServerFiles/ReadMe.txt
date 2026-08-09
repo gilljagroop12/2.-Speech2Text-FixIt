@@ -1,5 +1,6 @@
-Server Folder has 4 files uploaded: two 
+Server Folder has total 4 files
+uploaded the following two Files
 package.json
 server.js
 
-But the other two files were skipped from backup on GitHub as they were auto-generated 
+Remaining two files were skipped from backup on GitHub as they were auto-generated 
