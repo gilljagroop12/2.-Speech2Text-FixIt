@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictate — Voice Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,400;1,400&family=Archivo:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+      <filter id="n">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.85"
+          numOctaves="2"
+          stitchTiles="stitch"
+        ></feTurbulence>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#n)"></rect>
+    </svg>
+
+    <div class="seal"><span>Gill</span></div>
+
+    <div class="app">
+      <header>
+        <div class="mark">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 20 L16 8 M16 8 L14 4 L20 6 Z M12 12 L14 14"></path>
+          </svg>
+        </div>
+        <div class="eyebrow">Dictée</div>
+        <h1>Let the words find their own way</h1>
+        <p>
+          Speak plainly, and it is set down for you — to read back, refine, and
+          send.
+        </p>
+      </header>
+
+      <div class="layout">
+        <div class="mic-stage">
+          <div class="mic-wrap">
+            <button class="mic-button" id="micButton">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"
+                ></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </button>
+            <span class="pulse-ring"></span>
+            <span class="pulse-ring delay"></span>
+          </div>
+          <div class="status-row" id="statusRow">
+            <span class="status-text" id="statusText">Press to begin</span>
+            <span class="wave"
+              ><span></span><span></span><span></span><span></span><span></span
+            ></span>
+          </div>
+        </div>
+
+        <div class="right-col">
+          <div class="panel">
+            <div class="field-label">
+              <span>Transcript</span>
+            </div>
+            <textarea
+              id="transcript"
+              placeholder="Awaiting your voice…"
+            ></textarea>
+          </div>
+
+          <div class="actions">
+            <button class="btn" id="copyBtn">Copy</button>
+            <span class="sep">·</span>
+            <button class="btn ghost" id="clearBtn">Clear</button>
+            <span class="sep">·</span>
+            <button class="btn" id="fixItBtn">Fix It</button>
+            <span id="fixItStatus"></span>
+          </div>
+
+          <div class="unsupported" id="unsupported">
+            Voice typing isn't supported in this browser. Open this page in
+            Google Chrome or Microsoft Edge.
+          </div>
+        </div>
+      </div>
+
+      <p class="note">
+        Listening stops on its own after 5 seconds of silence. Runs on your
+        browser's built-in speech service and needs an internet connection — if
+        the microphone stays silent, open this file through a local server
+        rather than double-clicking it.
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
