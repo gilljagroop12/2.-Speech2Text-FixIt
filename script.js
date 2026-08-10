@@ -191,17 +191,22 @@ fixItBtn.addEventListener("click", async () => {
   try {
     // Send request to Node.js bridge
 
-    const response = await fetch("http://20.119.67.29:3000/chat", {
-      method: "POST",
+    //const response = await fetch("http://20.119.67.29:3000/chat", {
 
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://wjiai.eastus.cloudapp.azure.com/chat",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          prompt: originalText,
+        }),
       },
-
-      body: JSON.stringify({
-        prompt: originalText,
-      }),
-    });
+    );
 
     // Get answer from Node.js
 
